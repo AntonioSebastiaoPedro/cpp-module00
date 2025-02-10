@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:07:10 by ansebast          #+#    #+#             */
-/*   Updated: 2025/02/10 12:00:57 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/02/10 13:09:57 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	add_contact(PhoneBook *agenda)
 	std::string first_name;
 	std::string last_name;
 	std::string nickname;
-	std::string phone_number;
-	std::string darkest_secret;
+	std::string phone;
+	std::string secret;
 	
 	std::cout << "Insert the first name: ";
 	std::cin >> first_name;
@@ -37,14 +37,10 @@ void	add_contact(PhoneBook *agenda)
 	std::cout << "Insert the nick name: ";
 	std::cin >> nickname;
 	std::cout << "Insert the phone number: ";
-	std::cin >> phone_number;
+	std::cin >> phone;
 	std::cout << "Insert the darkest secret: ";
-	std::cin >> darkest_secret;
-	agenda->contacts[0].setFirstName(first_name);
-	agenda->contacts[0].setLastName(last_name);
-	agenda->contacts[0].setNickName(nickname);
-	agenda->contacts[0].setPhone(phone_number);
-	agenda->contacts[0].setSecret(darkest_secret);
+	std::cin >> secret;
+	agenda->contacts[0].saveContact(first_name, last_name, nickname, phone, secret);
 	std::cout << "Contact Saved!\n";
 }
 
