@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:07:10 by ansebast          #+#    #+#             */
-/*   Updated: 2025/02/10 21:33:45 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:53:54 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ void	showContact(Contact contact)
 
 void	showAllContacts(PhoneBook agenda)
 {
+	if (agenda.length() == 0)
+	{
+		std::cout << "There is no contact in the PhoneBook\n\n";
+		return ;
+	}
+	
 	for (int i = 0; i < agenda.length(); i++)
 	{
 		std::cout << "Index: " << i << "\n";
@@ -37,7 +43,7 @@ int	is_empty(std::string field)
 {
 	if (field.empty())
 	{
-		std::cout << "\nThis field cannot be empty. Contact canceled.\n";
+		std::cout << "This field cannot be empty. Contact canceled.\n";
 		return (1);
 	}
 	return (0);
@@ -54,6 +60,7 @@ void	addContact(PhoneBook *agenda)
 		"darkest secret"
 	};
 	
+	std::cout << "\n";
 	for (int i = 0; i < 5; i++)
 	{
 		std::cout << "Insert the " << field_name[i] << ": ";
@@ -80,10 +87,10 @@ int	main(void)
 	std::cout << "Welcome to the PhoneBook. What would you like to do?\n\n";
 	std::cout << "ADD: save a new contact\n";
 	std::cout << "SEARCH: display a specific contact\n";
-	std::cout << "EXIT: leave the PhoneBook\n\n";
+	std::cout << "EXIT: leave the PhoneBook\n";
 	while (true)
 	{
-		std::cout << "Choose an option: ";
+		std::cout << "\nChoose an option: ";
 		if (!std::getline(std::cin, option))
 		{
 			if (std::cin.eof())
@@ -108,6 +115,6 @@ int	main(void)
 			break;
 		}
 		else
-			std::cout << "Wrong Choice!\n\n";
+			std::cout << "Wrong Choice!\n";
 	}
 }
