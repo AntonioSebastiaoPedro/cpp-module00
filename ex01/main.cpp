@@ -6,13 +6,14 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:07:10 by ansebast          #+#    #+#             */
-/*   Updated: 2025/02/10 21:53:54 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/02/10 22:28:36 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
-#include <iostream>
-#include <limits>
+# include "PhoneBook.hpp"
+# include <iostream>
+# include <sstream>
+# include <iomanip>
 
 void	showContact(Contact contact)
 {
@@ -23,6 +24,13 @@ void	showContact(Contact contact)
 	std::cout << "Darkest Secret: " << contact.getSecret() << "\n";
 }
 
+std::string	truncateStr(std::string str, size_t max_size)
+{
+	if (str.length() > max_size)
+		return (str.substr(0, max_size - 1) + ".");
+	return (str);
+}
+
 void	showAllContacts(PhoneBook agenda)
 {
 	if (agenda.length() == 0)
@@ -30,12 +38,14 @@ void	showAllContacts(PhoneBook agenda)
 		std::cout << "There is no contact in the PhoneBook\n\n";
 		return ;
 	}
-	
+	std::cout << "|     Index|First Name| Last Name|  Nickname|\n";
 	for (int i = 0; i < agenda.length(); i++)
 	{
-		std::cout << "Index: " << i << "\n";
-		showContact(agenda.contacts[i]);
-		std::cout << std::endl;
+		Contact contact = agenda.contacts[i];
+		std::cout << "|" << std::setw(10) << i << "|";
+		std::cout << std::setw(10) << truncateStr(contact.getFirstName(), 10) << "|";
+		std::cout << std::setw(10) << truncateStr(contact.getLastName(), 10) << "|";
+		std::cout << std::setw(10) << truncateStr(contact.getNickName(), 10) << "|\n";
 	}
 }
 
