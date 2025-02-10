@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:52:42 by ansebast          #+#    #+#             */
-/*   Updated: 2025/02/10 12:47:21 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/02/10 14:17:47 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,17 +66,7 @@ class Contact
 	void setSecret(std::string secret)
 	{
 		this->darkest_secret = secret;
-	}
-
-	void	saveContact(std::string first_name, std::string last_name, std::string nickname,
-				std::string phone_number, std::string darkest_secret)
-	{
-		this->setFirstName(first_name);
-		this->setLastName(last_name);
-		this->setNickName(nickname);
-		this->setPhone(phone_number);
-		this->setSecret(darkest_secret);
-	}
+	}	
 };
 
 #endif

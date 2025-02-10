@@ -6,23 +6,33 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:07:10 by ansebast          #+#    #+#             */
-/*   Updated: 2025/02/10 13:09:57 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/02/10 14:38:06 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iostream>
 
-void	show_contact(Contact contact)
+void	showContact(Contact contact)
 {
-	std::cout << contact.getFirstName() << "\n";
-	std::cout << contact.getLastName() << "\n";
-	std::cout << contact.getNickName() << "\n";
-	std::cout << contact.getPhone() << "\n";
-	std::cout << contact.getSecret() << "\n";
+	std::cout << "First Name: " << contact.getFirstName() << "\n";
+	std::cout << "Last Name: " << contact.getLastName() << "\n";
+	std::cout << "Nickname: " << contact.getNickName() << "\n";
+	std::cout << "Phone Number: " << contact.getPhone() << "\n";
+	std::cout << "Darkest Secret: " << contact.getSecret() << "\n";
 }
 
-void	add_contact(PhoneBook *agenda)
+void	showAllContacts(PhoneBook agenda)
+{
+	for (int i = 0; i < agenda.length(); i++)
+	{
+		std::cout << "Index: " << i << "\n";
+		showContact(agenda.contacts[i]);
+		std::cout << std::endl;
+	}
+}
+
+void	addContact(PhoneBook *agenda)
 {
 	std::string first_name;
 	std::string last_name;
@@ -40,7 +50,8 @@ void	add_contact(PhoneBook *agenda)
 	std::cin >> phone;
 	std::cout << "Insert the darkest secret: ";
 	std::cin >> secret;
-	agenda->contacts[0].saveContact(first_name, last_name, nickname, phone, secret);
+	agenda->delOldest();
+	agenda->saveContact(first_name, last_name, nickname, phone, secret);
 	std::cout << "Contact Saved!\n";
 }
 
@@ -59,15 +70,15 @@ int	main(void)
 		std::cin >> option;
 		if (option.empty())
 			break ;
-		if (option == "ADD")
+		if (option == "A")
 		{
-			add_contact(&agenda);
+			addContact(&agenda);
 		}
-		else if (option == "SEARCH")
+		else if (option == "S")
 		{
-			show_contact(agenda.contacts[0]);
+			showAllContacts(agenda);
 		}
-		else if (option == "EXIT")
+		else if (option == "E")
 		{
 			std::cout << "Goodbye!\n";
 			return (0);
