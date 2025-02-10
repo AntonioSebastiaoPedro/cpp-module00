@@ -6,12 +6,13 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:07:10 by ansebast          #+#    #+#             */
-/*   Updated: 2025/02/10 14:38:06 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:33:45 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iostream>
+#include <limits>
 
 void	showContact(Contact contact)
 {
@@ -32,27 +33,43 @@ void	showAllContacts(PhoneBook agenda)
 	}
 }
 
+int	is_empty(std::string field)
+{
+	if (field.empty())
+	{
+		std::cout << "\nThis field cannot be empty. Contact canceled.\n";
+		return (1);
+	}
+	return (0);
+}
+
 void	addContact(PhoneBook *agenda)
 {
-	std::string first_name;
-	std::string last_name;
-	std::string nickname;
-	std::string phone;
-	std::string secret;
+	std::string fields[5];
+	std::string field_name[] = {
+		"first name",
+		"last name",
+		"nickname",
+		"phone number",
+		"darkest secret"
+	};
 	
-	std::cout << "Insert the first name: ";
-	std::cin >> first_name;
-	std::cout << "Insert the last name: ";
-	std::cin >> last_name;
-	std::cout << "Insert the nick name: ";
-	std::cin >> nickname;
-	std::cout << "Insert the phone number: ";
-	std::cin >> phone;
-	std::cout << "Insert the darkest secret: ";
-	std::cin >> secret;
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << "Insert the " << field_name[i] << ": ";
+		std::getline(std::cin, fields[i]);
+		if (std::cin.eof())
+		{
+			std::cout << "\nInput canceled. Contact not saved\n";
+			std::cin.clear();
+			return ;
+		}
+		if (is_empty(fields[i]))
+			return ;
+	}
 	agenda->delOldest();
-	agenda->saveContact(first_name, last_name, nickname, phone, secret);
-	std::cout << "Contact Saved!\n";
+	agenda->saveContact(fields[0], fields[1], fields[2], fields[3], fields[4]);
+	std::cout << "\nContact Saved successfully!\n";
 }
 
 int	main(void)
@@ -67,9 +84,16 @@ int	main(void)
 	while (true)
 	{
 		std::cout << "Choose an option: ";
-		std::cin >> option;
-		if (option.empty())
-			break ;
+		if (!std::getline(std::cin, option))
+		{
+			if (std::cin.eof())
+			{
+				std::cout << "\nGoodbye!\n";
+				break ;
+			}
+			std::cin.clear()	;
+			continue;
+		}
 		if (option == "A")
 		{
 			addContact(&agenda);
@@ -80,11 +104,10 @@ int	main(void)
 		}
 		else if (option == "E")
 		{
-			std::cout << "Goodbye!\n";
-			return (0);
+			std::cout << "\nGoodbye!\n";
+			break;
 		}
 		else
-			std::cout << "Wrong Choice!\n";
-		std::cout << "\n";
+			std::cout << "Wrong Choice!\n\n";
 	}
 }
