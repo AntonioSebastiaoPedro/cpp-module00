@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:07:10 by ansebast          #+#    #+#             */
-/*   Updated: 2025/02/10 22:28:36 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/02/10 23:09:10 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	showAllContacts(PhoneBook agenda)
 		std::cout << "There is no contact in the PhoneBook\n\n";
 		return ;
 	}
+	std::cout << "---------------- Contact List ---------------\n";
 	std::cout << "|     Index|First Name| Last Name|  Nickname|\n";
 	for (int i = 0; i < agenda.length(); i++)
 	{
@@ -47,6 +48,7 @@ void	showAllContacts(PhoneBook agenda)
 		std::cout << std::setw(10) << truncateStr(contact.getLastName(), 10) << "|";
 		std::cout << std::setw(10) << truncateStr(contact.getNickName(), 10) << "|\n";
 	}
+	std::cout << "---------------------------------------------\n\n";
 }
 
 int	is_empty(std::string field)
