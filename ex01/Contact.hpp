@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:52:42 by ansebast          #+#    #+#             */
-/*   Updated: 2025/03/02 14:18:31 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/03/02 15:46:28 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 
+class PhoneBook;
 class Contact
 {
   private:

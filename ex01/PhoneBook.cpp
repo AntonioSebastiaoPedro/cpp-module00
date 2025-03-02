@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 14:21:23 by ansebast          #+#    #+#             */
-/*   Updated: 2025/03/02 14:22:43 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/03/02 15:50:56 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ void PhoneBook::updateSize(void) { this->size++; }
 
 void PhoneBook::delOldest(void)
 {
-	if (this->size >= 2)
+	if (this->size >= 8)
 	{
 		for (int i = 0; i < size; i++)
 		{
 			if (i + 1 < size)
 				this->contacts[i] = this->contacts[i + 1];
 		}
-		this->size = 1;
+		this->size = 7;
 	}
 }
 
