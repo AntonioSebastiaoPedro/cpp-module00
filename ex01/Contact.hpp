@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 10:52:42 by ansebast          #+#    #+#             */
-/*   Updated: 2025/02/10 14:17:47 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/03/02 14:18:31 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,47 +26,17 @@ class Contact
 
   public:
 	Contact(){}
-	std::string getFirstName(void) const
-	{
-		return (this->first_name);
-	}
-	std::string getLastName(void) const
-	{
-		return (this->last_name);
-	}
-	std::string getPhone(void) const
-	{
-		return (this->phone_number);
-	}
-	std::string getNickName(void) const
-	{
-		return (this->nickname);
-	}
-	std::string getSecret(void) const
-	{
-		return (this->darkest_secret);
-	}
+	std::string getFirstName(void) const;
+	std::string getLastName(void) const;
+	std::string getPhone(void) const;
+	std::string getNickName(void) const;
+	std::string getSecret(void) const;
 
-	void setFirstName(std::string name)
-	{
-		this->first_name = name;
-	}
-	void setLastName(std::string name)
-	{
-		this->last_name = name;
-	}
-	void setNickName(std::string name)
-	{
-		this->nickname = name;
-	}
-	void setPhone(std::string phone)
-	{
-		this->phone_number = phone;
-	}
-	void setSecret(std::string secret)
-	{
-		this->darkest_secret = secret;
-	}	
+	void setFirstName(std::string name);
+	void setLastName(std::string name);
+	void setNickName(std::string name);
+	void setPhone(std::string phone);
+	void setSecret(std::string secret);
 };
 
 #endif
