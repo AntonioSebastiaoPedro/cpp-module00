@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 15:23:15 by ansebast          #+#    #+#             */
-/*   Updated: 2025/03/02 15:47:55 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/03/03 13:17:42 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class PhoneBook;
 
 bool		isIntiger(std::string str, int &number);
 std::string	truncateStr(std::string str, size_t max_size);
-int		is_empty(std::string field);
+int		isEmpty(std::string field);
 
 void		showContact(PhoneBook agenda);
 void		addContact(PhoneBook *agenda);

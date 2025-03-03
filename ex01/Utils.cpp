@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 15:24:29 by ansebast          #+#    #+#             */
-/*   Updated: 2025/03/02 15:24:50 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/03/03 13:18:39 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ std::string	truncateStr(std::string str, size_t max_size)
 	return (str);
 }
 
-int	is_empty(std::string field)
+int	isEmpty(std::string field)
 {
 	if (field.empty())
 	{

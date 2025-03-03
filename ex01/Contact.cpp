@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 14:12:40 by ansebast          #+#    #+#             */
-/*   Updated: 2025/03/02 15:47:11 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/03/03 13:19:01 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ void	addContact(PhoneBook *agenda)
 			std::cin.clear();
 			return ;
 		}
-		if (is_empty(fields[i]))
+		if (isEmpty(fields[i]))
 			return ;
 	}
 	agenda->delOldest();
