@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 11:07:13 by ansebast          #+#    #+#             */
-/*   Updated: 2025/04/12 13:51:47 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/04/12 13:59:37 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,24 @@ void	Account::makeDeposit( int deposit )
 
 bool	Account::makeWithdrawal( int withdrawal )
 {
-	(void)withdrawal;
-	return (true);
+	if (checkAmount() - withdrawal < 0){
+		return ( false );
+	}
+	
+	this->_amount -= withdrawal;
+	this->_nbWithdrawals++;
+	std::cout << "index:" << this->_accountIndex << ";"
+		  << "p_amount:" << this->_amount + withdrawal << ";"
+		  << "withdrawal:" << withdrawal << ";"
+		  << "amount:" << this->_amount << ";"
+		  << "nb_withdrawals:" << this->_nbWithdrawals << ";"
+		  << std::endl;
+	return ( true );
 }
 
 int	Account::checkAmount( void ) const
 {
-	return (0);
+	return ( this->_amount );
 }
 
 void	Account::displayStatus( void ) const
