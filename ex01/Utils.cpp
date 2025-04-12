@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 15:24:29 by ansebast          #+#    #+#             */
-/*   Updated: 2025/04/12 17:24:23 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/04/12 17:46:47 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,17 @@ std::string	truncateStr(std::string str, size_t max_size)
 
 int	isEmpty(std::string field)
 {
-	if (field.empty())
+	size_t i = 0;
+
+	if (field[i] == ' ')
+	{
+		std::cout << "The value of this field cannot begin with empty spaces. Contact canceled.\n";
+		return (1);
+	}
+	while(field.at(i) == ' ' || (field.at(i) >= 9 && field.at(i) <= 13))
+		i++;
+
+	if (field.empty() || i == field.length())
 	{
 		std::cout << "This field cannot be empty. Contact canceled.\n";
 		return (1);
