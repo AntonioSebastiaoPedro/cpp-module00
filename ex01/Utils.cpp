@@ -6,13 +6,13 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 15:24:29 by ansebast          #+#    #+#             */
-/*   Updated: 2025/03/03 13:18:39 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/04/12 17:24:23 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Utils.hpp"
 
-bool	isIntiger(std::string str, int &number)
+bool	isIntiger(std::string str, long long &number)
 {
 	if (str.empty())
 		return (false);

@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 14:12:40 by ansebast          #+#    #+#             */
-/*   Updated: 2025/03/03 13:19:01 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/04/12 17:30:23 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	Contact::setSecret(std::string secret)
 
 void	showContact(PhoneBook agenda)
 {
-	int	index;
+	long long	index;
 	std::string	input;
 	
 	std::cout << "Enter the index of the contact you want to show: ";
@@ -135,8 +135,43 @@ void	addContact(PhoneBook *agenda)
 		}
 		if (isEmpty(fields[i]))
 			return ;
+		if (i == 3)
+		{
+			if (!validatePhone(fields[3])){
+				std::cout << "Contact canceled.\n";
+				return ;
+			}
+		}
 	}
 	agenda->delOldest();
 	agenda->saveContact(fields[0], fields[1], fields[2], fields[3], fields[4]);
 	std::cout << "\nContact Saved successfully!\n";
+}
+
+bool	validatePhone( std::string phone )
+{
+	std::string phoneNumber;
+	long long number;
+	
+	if (!isdigit(phone.at(0)) && phone.at(0) != '+')
+	{
+		std::cout << "Invalidddddddd phone number\n\n";
+		return (false);
+	}
+	if (phone.length() < 8 || phone.length() > 16 || (phone.at(0) == '+' && phone.length() < 12))
+	{
+		std::cout << "Invalid number of digits\n";
+		return (false);
+	}
+	if (phone.at(0) == '+'){
+		phoneNumber = phone.substr(1);
+	} else {
+		phoneNumber = phone.substr(0);
+	}
+	if (!isIntiger(phoneNumber, number))
+	{
+		std::cout << "Invalid phone number\n";
+		return (false);
+	}
+	return (true);
 }
