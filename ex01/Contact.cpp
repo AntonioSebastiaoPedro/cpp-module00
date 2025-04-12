@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 14:12:40 by ansebast          #+#    #+#             */
-/*   Updated: 2025/04/12 17:30:23 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/04/12 17:35:03 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,7 +155,7 @@ bool	validatePhone( std::string phone )
 	
 	if (!isdigit(phone.at(0)) && phone.at(0) != '+')
 	{
-		std::cout << "Invalidddddddd phone number\n\n";
+		std::cout << "Invalid phone number\n";
 		return (false);
 	}
 	if (phone.length() < 8 || phone.length() > 16 || (phone.at(0) == '+' && phone.length() < 12))
