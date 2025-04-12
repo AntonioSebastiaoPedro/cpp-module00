@@ -6,11 +6,12 @@
 #    By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/10 10:04:08 by ansebast          #+#    #+#              #
-#    Updated: 2025/03/02 15:34:57 by ansebast         ###   ########.fr        #
+#    Updated: 2025/04/12 15:42:13 by ansebast         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
+CXX = c++
 FLAGS = -Wall -Wextra -Werror -g -std=c++98
 SRC = main.cpp Contact.cpp PhoneBook.cpp Utils.cpp
 OBJS = $(SRC:.cpp=.o)
