@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 11:07:13 by ansebast          #+#    #+#             */
-/*   Updated: 2025/04/12 14:08:16 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/04/12 14:38:07 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,27 +74,37 @@ void	Account::makeDeposit( int deposit )
 {
 	this->_amount += deposit;
 	this->_nbDeposits++;
+	
+	_totalAmount += deposit;
+	_totalNbDeposits++;
 	std::cout << "index:" << this->_accountIndex << ";"
 		  << "p_amount:" << this->_amount - deposit << ";"
 		  << "deposit:" << deposit << ";"
 		  << "amount:" << this->_amount << ";"
-		  << "nb_deposits:" << this->_nbDeposits << ";"
+		  << "nb_deposits:" << this->_nbDeposits
 		  << std::endl;
 }
 
 bool	Account::makeWithdrawal( int withdrawal )
 {
-	if (checkAmount() - withdrawal < 0){
+	if (checkAmount() - withdrawal < 0)
+	{
+		std::cout << "index:" << this->_accountIndex << ";"
+			<< "p_amount:" << this->_amount << ";"
+			<< "withdrawal:refused"
+			<< std::endl;
 		return ( false );
 	}
 	
 	this->_amount -= withdrawal;
 	this->_nbWithdrawals++;
+	_totalAmount -= withdrawal;
+	_totalNbWithdrawals++;
 	std::cout << "index:" << this->_accountIndex << ";"
 		  << "p_amount:" << this->_amount + withdrawal << ";"
 		  << "withdrawal:" << withdrawal << ";"
 		  << "amount:" << this->_amount << ";"
-		  << "nb_withdrawals:" << this->_nbWithdrawals << ";"
+		  << "nb_withdrawals:" << this->_nbWithdrawals
 		  << std::endl;
 	return ( true );
 }
@@ -108,8 +118,8 @@ void	Account::displayStatus( void ) const
 {
 	std::cout << "index:" << this->_accountIndex << ";"
 		<< "amount:" << this->_amount << ";"
-		<< "deposit:" << this->_nbDeposits << ";"
-		<< "withdrawals:" << this->_nbWithdrawals << ";"
+		<< "deposits:" << this->_nbDeposits << ";"
+		<< "withdrawals:" << this->_nbWithdrawals
 		<< std::endl;
 }
 
