@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 11:07:13 by ansebast          #+#    #+#             */
-/*   Updated: 2025/04/12 13:59:37 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/04/12 14:08:16 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ Account::Account( int initial_deposit )
 	this->_accountIndex = _nbAccounts;
 	this->_amount = initial_deposit;
 	this->_nbDeposits = 0;
+	this->_nbWithdrawals = 0;
 	_totalAmount += initial_deposit;
 	_nbAccounts++;
 	std::cout << "index:" << this->_accountIndex << ";"
@@ -63,7 +64,10 @@ Account::Account( int initial_deposit )
 
 Account::~Account( void )
 {
-
+	std::cout << "index:" << this->_accountIndex << ";"
+		  << "amount:" << this->_amount << ";"
+		  << "closed"
+		  << std::endl;
 }
 
 void	Account::makeDeposit( int deposit )
